@@ -92,8 +92,8 @@ void ofxBox2dEdge::updateShape() {
         b2EdgeShape * edge = (b2EdgeShape*)f->GetShape();
         
         if(edge) {
-            ofPolyline::addVertex(worldPtToscreenPt(edge->m_vertex2));
-            ofPolyline::addVertex(worldPtToscreenPt(edge->m_vertex1));
+            ofPolyline::addVertex(glm::vec3(worldPtToscreenPt(edge->m_vertex2), 0.f));
+            ofPolyline::addVertex(glm::vec3(worldPtToscreenPt(edge->m_vertex1), 0.f));
             
             mesh.addVertex(ofVec3f(worldPtToscreenPt(edge->m_vertex2)));
             mesh.addVertex(ofVec3f(worldPtToscreenPt(edge->m_vertex1)));

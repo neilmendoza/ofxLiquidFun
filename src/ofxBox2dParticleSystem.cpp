@@ -56,9 +56,9 @@ void ofxBox2dParticleSystem::draw(){
     ofScale(OFX_BOX2D_SCALE, OFX_BOX2D_SCALE);
     glPointSize(particleSize);
     if (useTexture) {
-        textureImage.getTextureReference().bind();
+        textureImage.bind();
         mesh.drawFaces();
-        textureImage.getTextureReference().unbind();
+        textureImage.unbind();
     } else {
         mesh.draw();
     }
@@ -127,7 +127,7 @@ void ofxBox2dParticleSystem::createCircleParticleGroup(ofVec2f position, float r
 
 void ofxBox2dParticleSystem::loadImage(string filename){
     ofDisableArbTex();
-    textureImage.loadImage(filename);
+    textureImage.load(filename);
     useTexture = true;
 }
 
