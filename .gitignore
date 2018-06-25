@@ -72,6 +72,9 @@ ipch/
 local.properties
 .externalToolBuilders
 
+# AppCode
+*/*.idea
+
 #########################
 # operating system
 #########################

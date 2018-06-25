@@ -45,7 +45,7 @@ void ofxBox2dParticleSystem::draw(){
     mesh.setMode(OF_PRIMITIVE_POINTS);
     
     for (int i = 0; i < particleCount; i++) {
-        mesh.addVertex(ofVec2f(positnon[i].x, positnon[i].y));
+        mesh.addVertex(glm::vec3(positnon[i].x, positnon[i].y, 0.f));
         mesh.addColor(ofFloatColor(particleColor[i].r / 255.0, particleColor[i].g / 255.0, particleColor[i].b / 255.0));
     }
     
