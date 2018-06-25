@@ -9,6 +9,7 @@
 
 ofxBox2dParticleSystem::ofxBox2dParticleSystem(){
     flag = b2_waterParticle;
+    groupFlag = (b2ParticleGroupFlag)0;
 }
 
 void ofxBox2dParticleSystem::setup(b2World * _b2world){
@@ -98,6 +99,7 @@ void ofxBox2dParticleSystem::createRectParticleGroup(ofVec2f position, ofVec2f s
     
     b2ParticleGroupDef pgd;
     pgd.flags = flag;
+    pgd.groupFlags = groupFlag;
     pgd.position = b2Vec2(position.x / OFX_BOX2D_SCALE, position.y / OFX_BOX2D_SCALE);
     pgd.shape = &rect;
     pgd.color = b2ParticleColor(color.r, color.g, color.b, color.a);
@@ -113,6 +115,7 @@ void ofxBox2dParticleSystem::createCircleParticleGroup(ofVec2f position, float r
     
     b2ParticleGroupDef pgd;
     pgd.flags = flag;
+    pgd.groupFlags = groupFlag;
     pgd.position = b2Vec2(position.x / OFX_BOX2D_SCALE, position.y / OFX_BOX2D_SCALE);
     pgd.shape = &circle;
     pgd.color = b2ParticleColor(color.r, color.g, color.b, color.a);
@@ -145,6 +148,9 @@ void ofxBox2dParticleSystem::setParticleFlag(b2ParticleFlag _flag){
     flag = _flag;
 }
 
+void ofxBox2dParticleSystem::setParticleGroupFlag(b2ParticleGroupFlag _groupFlag){
+    groupFlag = _groupFlag;
+}
 
 int ofxBox2dParticleSystem::getParticleCount(){
     return particleSystem->GetParticleCount();
