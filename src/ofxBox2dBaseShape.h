@@ -7,16 +7,7 @@
 class ofxBox2dBaseShape {
 	
 public:
-	b2FixtureDef	fixture;
-	b2BodyDef		bodyDef;
-	b2Body*			body;
-	
-	bool			alive;
-	bool			setMassFromShape;
-	
-	float			density;
-	float			bounce;
-	float			friction;
+
 	ofxBox2dBaseShape();	
 	
 	//----------------------------------------
@@ -48,7 +39,9 @@ public:
 	
 	//------------------------------------------------ 
 	virtual void setPhysics(float density, float bounce, float friction);
-	
+
+    //------------------------------------------------
+    void setBodyType(b2BodyType bodyType);
 
 	//------------------------------------------------ 
 	void* setData(void*data);
@@ -75,8 +68,7 @@ public:
 	//------------------------------------------------ 
 	ofVec2f getPosition();
 	ofVec2f getB2DPosition();
-	
-	
+
 	//------------------------------------------------ 
 	virtual void setVelocity(float x, float y);
 	virtual void setVelocity(ofVec2f p);
@@ -85,9 +77,7 @@ public:
 	//------------------------------------------------ 
 	virtual void setDamping(float f);
 	virtual void setDamping(float fx, float fy);
-	
-	
-	
+
 	//------------------------------------------------
 	virtual void addForce(ofVec2f frc, float scale);
 	
@@ -103,7 +93,19 @@ public:
 	//------------------------------------------------
 	virtual void update();
 	virtual void draw();
-	
+
+protected:
+    b2FixtureDef	fixture;
+    b2BodyDef		bodyDef;
+    b2Body*			body;
+    bool            bodyTypeSet;
+
+    bool			alive;
+    bool			setMassFromShape;
+
+    float			density;
+    float			bounce;
+    float			friction;
 };
 
 

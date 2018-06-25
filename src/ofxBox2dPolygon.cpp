@@ -15,7 +15,6 @@ ofxBox2dPolygon::ofxBox2dPolygon() {
 	bIsTriangulated = false;
 	bIsSimplified   = false;
     ofPolyline::setClosed(true);
-
 }
 
 //----------------------------------------
@@ -138,9 +137,9 @@ void ofxBox2dPolygon::create(b2World * b2dworld) {
 	}
 	
 	// create the body from the world (1)
-	b2BodyDef		bd;
-	bd.type			= density <= 0.0 ? b2_staticBody : b2_dynamicBody;
-	body			= b2dworld->CreateBody(&bd);
+	//b2BodyDef		bd; // nm: already have one of these in our base class
+	if (!bodyTypeSet) bodyDef.type = density <= 0.0 ? b2_staticBody : b2_dynamicBody;
+	body			= b2dworld->CreateBody(&bodyDef);
 
 	if(bIsTriangulated) {
 		

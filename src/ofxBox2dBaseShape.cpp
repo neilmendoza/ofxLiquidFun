@@ -19,7 +19,8 @@ ofxBox2dBaseShape::ofxBox2dBaseShape() {
 	density     = 0.0;
 	bounce		= 0.0;
 	friction	= 0.0;
-	bodyDef.allowSleep = true;
+	//bodyDef.allowSleep = true; // nm: already set in constructor
+	bodyTypeSet = false;
 }
 
 //----------------------------------------
@@ -113,8 +114,13 @@ void ofxBox2dBaseShape::setPhysics(float density, float bounce, float friction) 
 	this->density = density; this->bounce = bounce; this->friction = friction;
 }
 
+//------------------------------------------------
+void ofxBox2dBaseShape::setBodyType(b2BodyType bodyType) {
+    bodyDef.type = bodyType;
+    bodyTypeSet = true;
+}
 
-//------------------------------------------------ 
+//------------------------------------------------
 void* ofxBox2dBaseShape::setData(void*data) {
 	
 	if(data == NULL) {
