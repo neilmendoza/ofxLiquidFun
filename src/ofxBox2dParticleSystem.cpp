@@ -93,7 +93,7 @@ void ofxBox2dParticleSystem::applyForce( int32 particle_index, float force_x, fl
   particleSystem->ParticleApplyForce( particle_index, b2Vec2( force_x, force_y ) );
 }
 
-void ofxBox2dParticleSystem::createRectParticleGroup(ofVec2f position, ofVec2f size, ofColor color){
+b2ParticleGroup* ofxBox2dParticleSystem::createRectParticleGroup(ofVec2f position, ofVec2f size, ofColor color){
     b2PolygonShape rect;
     rect.SetAsBox(size.x / OFX_BOX2D_SCALE, size.y / OFX_BOX2D_SCALE);
     
@@ -106,10 +106,10 @@ void ofxBox2dParticleSystem::createRectParticleGroup(ofVec2f position, ofVec2f s
     if (lifetime > 0.0) {
         pgd.lifetime = lifetime;
     }
-    particleSystem->CreateParticleGroup(pgd);
+    return particleSystem->CreateParticleGroup(pgd);
 }
 
-void ofxBox2dParticleSystem::createCircleParticleGroup(ofVec2f position, float radius, ofColor color){
+b2ParticleGroup* ofxBox2dParticleSystem::createCircleParticleGroup(ofVec2f position, float radius, ofColor color){
     b2CircleShape circle;
     circle.m_radius = radius / OFX_BOX2D_SCALE;
     
@@ -122,7 +122,7 @@ void ofxBox2dParticleSystem::createCircleParticleGroup(ofVec2f position, float r
     if (lifetime > 0.0) {
         pgd.lifetime = lifetime;
     }
-    particleSystem->CreateParticleGroup(pgd);
+    return particleSystem->CreateParticleGroup(pgd);
 }
 
 void ofxBox2dParticleSystem::loadImage(string filename){

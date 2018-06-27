@@ -34,9 +34,9 @@ public:
     
     int32 createParticle(ofVec2f position, ofVec2f velocity);
     int32 createParticle(float position_x, float position_y, float velocisty_x, float velocisty_y);
-    
-    void createRectParticleGroup(ofVec2f position, ofVec2f size, ofColor color);
-    void createCircleParticleGroup(ofVec2f position, float radius, ofColor color);
+
+    b2ParticleGroup* createRectParticleGroup(ofVec2f position, ofVec2f size, ofColor color);
+    b2ParticleGroup* createCircleParticleGroup(ofVec2f position, float radius, ofColor color);
     
     void loadImage(string fileName);
     
