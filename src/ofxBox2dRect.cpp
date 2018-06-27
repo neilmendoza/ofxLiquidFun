@@ -158,7 +158,7 @@ void ofxBox2dRect::draw() {
     
     ofPushMatrix();
     ofTranslate(ofxBox2dBaseShape::getPosition());
-    ofRotate(getRotation());
+    ofRotateDeg(getRotation());
     mesh.draw(ofGetFill()==OF_FILLED?OF_MESH_FILL:OF_MESH_WIREFRAME);
     ofPopMatrix();
     
