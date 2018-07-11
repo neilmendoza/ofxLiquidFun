@@ -85,6 +85,10 @@ b2World* ofxBox2dBaseShape::getWorld() {
 	return NULL;
 }
 
+b2Body* ofxBox2dBaseShape::getBody() {
+    return body;
+}
+
 //----------------------------------------
 void ofxBox2dBaseShape::create() {}
 

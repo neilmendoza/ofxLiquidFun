@@ -24,6 +24,9 @@ public:
     
 	//----------------------------------------
 	b2World* getWorld();
+    
+    //----------------------------------------
+    b2Body* getBody();
 	
 	//----------------------------------------
 	virtual void create();
@@ -42,6 +45,7 @@ public:
 
     //------------------------------------------------
     void setBodyType(b2BodyType bodyType);
+    b2BodyType getBodyType() const { return bodyDef.type; }
 
 	//------------------------------------------------ 
 	void* setData(void*data);

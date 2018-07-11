@@ -12,7 +12,7 @@ static float b2dNum(float f) {
 }
 
 
-static b2Vec2 screenPtToWorldPt(ofVec2f p) {
+static b2Vec2 screenPtToWorldPt(const glm::vec2& p) {
 	return b2Vec2(p.x/OFX_BOX2D_SCALE, p.y/OFX_BOX2D_SCALE);
 }
 //static ofPoint worldPtToscreenPt(b2Vec2 p) {
