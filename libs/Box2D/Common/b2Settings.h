@@ -56,8 +56,8 @@ typedef double float64;
 typedef __int64   int64;
 typedef unsigned __int64   uint64;
 #else // !WIN32
-typedef long long int64;
-typedef unsigned long long uint64;
+typedef int64_t int64;
+typedef uint64_t uint64;
 #endif
 
 #define	b2_maxFloat		FLT_MAX
