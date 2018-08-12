@@ -66,6 +66,10 @@ void ofxBox2dParticleSystem::draw(){
     ofDisablePointSprites();
 }
 
+int32 ofxBox2dParticleSystem::createParticle(glm::vec2 position , glm::vec2 velocity){
+    return createParticle(position.x, position.y, velocity.x, velocity.y);
+}
+
 int32 ofxBox2dParticleSystem::createParticle(ofVec2f position , ofVec2f velocity){
     return createParticle(position.x, position.y, velocity.x, velocity.y);
 }

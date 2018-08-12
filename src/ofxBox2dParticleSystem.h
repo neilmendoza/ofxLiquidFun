@@ -32,6 +32,7 @@ public:
     void setup(b2World * b2world, int maxCount, float lifetime, float radius, float particleSize, ofColor color);
     void draw();
     
+    int32 createParticle(glm::vec2 position, glm::vec2 velocity);
     int32 createParticle(ofVec2f position, ofVec2f velocity);
     int32 createParticle(float position_x, float position_y, float velocisty_x, float velocisty_y);
 
