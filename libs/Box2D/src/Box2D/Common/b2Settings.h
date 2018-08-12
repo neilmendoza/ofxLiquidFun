@@ -23,6 +23,7 @@
 #include <stddef.h>
 #include <assert.h>
 #include <float.h>
+#include <cstdint>
 
 #define B2_NOT_USED(x) ((void)(x))
 #if DEBUG && !defined(NDEBUG)
@@ -56,6 +57,8 @@ typedef double float64;
 typedef __int64   int64;
 typedef unsigned __int64   uint64;
 #else // !WIN32
+//typedef long long int64;
+//typedef unsigned long long uint64;
 typedef int64_t int64;
 typedef uint64_t uint64;
 #endif
