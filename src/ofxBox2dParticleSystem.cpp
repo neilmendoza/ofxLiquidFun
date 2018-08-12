@@ -156,6 +156,6 @@ void ofxBox2dParticleSystem::setParticleGroupFlag(b2ParticleGroupFlag _groupFlag
     groupFlag = _groupFlag;
 }
 
-int ofxBox2dParticleSystem::getParticleCount(){
+int ofxBox2dParticleSystem::getParticleCount() const {
     return particleSystem->GetParticleCount();
 }

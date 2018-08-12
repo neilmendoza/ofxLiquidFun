@@ -47,7 +47,7 @@ public:
     void setParticleFlag(b2ParticleFlag flag);
     void setParticleGroupFlag(b2ParticleGroupFlag flag);
 
-    int getParticleCount();
+    int getParticleCount() const;
 
     void applyForce( int32 particle_index, const ofVec2f& force ); 
     void applyForce( int32 particle_index, float force_x, float force_y ); 
