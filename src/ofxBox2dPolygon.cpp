@@ -157,7 +157,14 @@ void ofxBox2dPolygon::create(b2World * b2dworld) {
 			verts[0].Set(a.x/OFX_BOX2D_SCALE, a.y/OFX_BOX2D_SCALE);
 			verts[1].Set(b.x/OFX_BOX2D_SCALE, b.y/OFX_BOX2D_SCALE);
 			verts[2].Set(c.x/OFX_BOX2D_SCALE, c.y/OFX_BOX2D_SCALE);
-			
+
+            bool ignore = false;
+            for (unsigned j = 0; j < 3; ++j)
+            {
+                if (b2DistanceSquared(verts[j], verts[(j + 1) % 3]) < 0.5f * b2_linearSlop) ignore = true;
+            }
+            if (ignore) continue;
+
 			shape.Set(verts, 3);
 			
 			fixture.density		= density;
