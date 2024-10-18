@@ -33,11 +33,11 @@ ofxBox2dBaseShape::~ofxBox2dBaseShape() {
 void ofxBox2dBaseShape::destroy() {
 	
 	if(getWorld() == NULL) {
-		ofLog(OF_LOG_NOTICE, "ofxBox2dBaseShape:: - must have a valid world -");
+		ofLog(OF_LOG_VERBOSE, "ofxBox2dBaseShape:: - must have a valid world -");
 		return;
 	}
 	else if(body == NULL) {
-		ofLog(OF_LOG_NOTICE, "ofxBox2dBaseShape:: - null body -");
+		ofLog(OF_LOG_VERBOSE, "ofxBox2dBaseShape:: - null body -");
 		return;
 	}
     
@@ -128,17 +128,17 @@ void ofxBox2dBaseShape::setBodyType(b2BodyType bodyType) {
 void* ofxBox2dBaseShape::setData(void*data) {
 	
 	if(data == NULL) {
-		ofLog(OF_LOG_NOTICE, "ofxBox2dBaseShape:: - data is NULL -");
+		ofLog(OF_LOG_VERBOSE, "ofxBox2dBaseShape:: - data is NULL -");
 		return NULL;
 	}
 	
 	if(isBody()) {
-		ofLog(OF_LOG_NOTICE, "ofxBox2dBaseShape:: - custom data set %p", data);
+		ofLog(OF_LOG_VERBOSE, "ofxBox2dBaseShape:: - custom data set %p", data);
 		body->SetUserData(data);
 		return data;
 	}
 	else {
-		ofLog(OF_LOG_NOTICE, "ofxBox2dBaseShape:: - must have a valid body -");
+		ofLog(OF_LOG_VERBOSE, "ofxBox2dBaseShape:: - must have a valid body -");
         return NULL;
 	}
 }
@@ -149,7 +149,7 @@ void* ofxBox2dBaseShape::getData() {
 		return body->GetUserData();
 	}
 	else {
-		ofLog(OF_LOG_NOTICE, "ofxBox2dBaseShape:: - must have a valid body -");
+		ofLog(OF_LOG_VERBOSE, "ofxBox2dBaseShape:: - must have a valid body -");
 		return NULL;
 	}
 }
@@ -192,7 +192,7 @@ void ofxBox2dBaseShape::setRotation(float angle){
 //------------------------------------------------ 
 void ofxBox2dBaseShape::setPosition(float x, float y) {
 	if(!body || body == NULL) {
-		ofLog(OF_LOG_NOTICE, "ofxBox2dBaseShape:: - Body is NULL -");
+		ofLog(OF_LOG_VERBOSE, "ofxBox2dBaseShape:: - Body is NULL -");
 		return;
 	}
 	body->SetTransform(b2Vec2(b2dNum(x), b2dNum(y)), 0);
