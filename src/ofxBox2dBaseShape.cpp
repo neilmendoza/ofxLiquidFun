@@ -58,7 +58,7 @@ bool ofxBox2dBaseShape::shouldRemoveOffScreen(ofPtr<ofxBox2dBaseShape> shape) {
 bool ofxBox2dBaseShape::isBody() {
 	if (body == NULL) {
 		//cout << __FILE__ << __func__ << endl;
-		ofLog(OF_LOG_ERROR, "ofxBox2dBaseShape:: - body is not defined -");
+		ofLog(OF_LOG_VERBOSE, "ofxBox2dBaseShape:: - body is not defined -");
 		return false;
 	}
 	return true;
@@ -73,7 +73,7 @@ bool ofxBox2dBaseShape::isSleeping() {
         return !body->IsAwake();
     }
     else { 
-        ofLog(OF_LOG_ERROR, "ofxBox2dBaseShape:: - body is not defined -");
+        ofLog(OF_LOG_VERBOSE, "ofxBox2dBaseShape:: - body is not defined -");
         return false;
     }
 }
